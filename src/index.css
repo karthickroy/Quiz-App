@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+.custom-step {
+  --tw-step-accent: #fcc822 !important;
+}
