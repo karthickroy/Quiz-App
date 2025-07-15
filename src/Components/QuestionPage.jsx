@@ -50,8 +50,13 @@ const QuestionPage = () => {
   }, []);
 
   if (!category) {
-    return <div>Loading context...</div>;
+    return (
+      <div className="h-screen w-screen flex items-center justify-center">
+        <span className="loading loading-dots loading-xl"></span>
+      </div>
+    );
   }
+
   return (
     <div className="w-full mx-auto flex items-center  flex-col min-h-screen px-4 py-8 ">
       <div className=" flex justify-around items-center w-full  ">
