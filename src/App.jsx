@@ -4,6 +4,7 @@ import LandingPage from "./Components/LandingPage";
 import LoginPage from "./Components/LoginPage";
 import QuestionPage from "./Components/QuestionPage";
 import Stepper from "./Components/Stepper";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/question/:category/:id" element={<QuestionPage />} />
         </Routes>
       </div>
+      <ToastContainer />
     </Router>
   );
 }

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "../firebaseconfigurations/config";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -41,6 +42,7 @@ export default function LoginPage() {
     try {
       await signInWithPopup(auth, googleProvider);
       navigate("/landing");
+      toast.success("Logged in successfully");
     } catch (error) {
       console.error("Login failed:", error.message);
     }
@@ -51,6 +53,7 @@ export default function LoginPage() {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
           navigate("/landing");
+          toast.success("Logged in successfully");
         })
         .catch((error) => {
           console.log("error :", errorMessage);
@@ -65,6 +68,7 @@ export default function LoginPage() {
       signInWithEmailAndPassword(auth, email, password)
         .then(() => {
           navigate("/landing");
+          toast.success("Logged in successfully");
         })
         .catch((error) => {
           console.error("Firebase login error:", error);
