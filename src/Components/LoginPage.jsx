@@ -72,6 +72,7 @@ export default function LoginPage() {
         })
         .catch((error) => {
           console.error("Firebase login error:", error);
+          toast.error("Invalid credentials");
           setSubmitError("Invalid credentials");
         });
     }

@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseconfigurations/config.js";
 import categoryContext from "./Category";
+import { toast } from "react-toastify";
 
 const categoryData = [
   { id: "9", category: "GENERAL KNOWLEDGE" },
@@ -47,6 +48,7 @@ const LandingPage = () => {
     signOut(auth)
       .then(() => {
         navigate("/");
+        toast.info("Logged out Successfully !");
       })
       .catch((error) => {
         console.error("Logout error:", error);
