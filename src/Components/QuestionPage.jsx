@@ -39,7 +39,6 @@ const QuestionPage = () => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timerId.current);
-          // Optional: you can auto-submit or alert here on timeout
           document.getElementById("my_modal_1")?.showModal();
           return 0;
         }

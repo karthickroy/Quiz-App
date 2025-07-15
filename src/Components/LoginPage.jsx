@@ -4,21 +4,17 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { motion } from "framer-motion";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "../firebaseconfigurations/config";
-import categoryContext from "./Category"; // your context
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const { setCategory } = useContext(categoryContext); // grabbing context
   const [submitError, setSubmitError] = useState("");
 
   const navigate = useNavigate();
-
-  // State for form fields
 
   // Email/Password validation
   const validateForm = () => {
@@ -43,10 +39,8 @@ export default function LoginPage() {
 
   const signIn = async () => {
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
+      await signInWithPopup(auth, googleProvider);
       navigate("/landing");
-      console.log("Logged in user:", user);
     } catch (error) {
       console.error("Login failed:", error.message);
     }
@@ -55,42 +49,21 @@ export default function LoginPage() {
   const handleSignIn = () => {
     if (validateForm()) {
       createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed up
+        .then(() => {
           navigate("/landing");
-          // ...
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
           console.log("error :", errorMessage);
+          const errorMessage = error.message;
           setSubmitError("email already in use");
-
-          // ..
         });
     }
   };
 
-  // const handleLogin = () => {
-  //   if (validateForm()) {
-  //     signInWithEmailAndPassword(auth, email, password)
-  //       .then((userCredential) => {
-  //         localStorage.setItem("isLoggedIn", "true");
-  //         navigate("/landing");
-  //         // ...
-  //       })
-  //       .catch((error) => {
-  //         const errorCode = error.code;
-  //         const errorMessage = error.message;
-  //         setSubmitError("invalid credentials");
-  //       });
-  //   }
-  // };
   const handleLogin = () => {
     if (validateForm()) {
       signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // User is signed in, Firebase tracks it
+        .then(() => {
           navigate("/landing");
         })
         .catch((error) => {

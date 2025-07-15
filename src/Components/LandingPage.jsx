@@ -33,31 +33,20 @@ const LandingPage = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setIsLoggedIn(true); // User is signed in
+        setIsLoggedIn(true);
       } else {
-        setIsLoggedIn(false); // No user is signed in
-        navigate("/"); // redirect to login if not logged in
+        setIsLoggedIn(false);
+        navigate("/");
       }
     });
 
-    return () => unsubscribe(); // cleanup on unmount
+    return () => unsubscribe();
   }, [navigate]);
-
-  // const handleLogout = () => {
-  //   signOut(auth)
-  //     .then(() => {
-  //       localStorage.removeItem("isLoggedIn"); // optional if still using it
-  //       navigate("/"); // go back to login page
-  //     })
-  //     .catch((error) => {
-  //       console.error("Logout error:", error);
-  //     });
-  // };
 
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        navigate("/"); // go back to login page
+        navigate("/");
       })
       .catch((error) => {
         console.error("Logout error:", error);
@@ -88,21 +77,6 @@ const LandingPage = () => {
       navigate(`/question/${categoryID}/${1}`);
     }
   };
-
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     if (currentUser) {
-  //       setUser(currentUser);
-  //       console.log("Logged in user:", currentUser);
-  //     } else {
-  //       setUser(null);
-  //       console.log("No user is signed in.");
-  //     }
-  //   });
-
-  //   // Cleanup subscription on unmount
-  //   return () => unsubscribe();
-  // }, []);
 
   return (
     <div className="container w-full min-h-screen mx-auto mt-5 relative px-4">

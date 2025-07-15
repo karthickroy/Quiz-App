@@ -9,12 +9,11 @@ const CategoryProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // This listener watches for login/logout
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser); // ✅ sets user on both email and Google login
+      setUser(currentUser);
     });
 
-    return () => unsubscribe(); // cleanup on unmount
+    return () => unsubscribe();
   }, []);
 
   return (
