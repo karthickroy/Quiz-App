@@ -12,7 +12,7 @@ const categoryData = [
   { id: "28", category: "VEHICLES" },
   { id: "17", category: "SCIENCE & NATURE" },
   { id: "27", category: "ANIMALS" },
-  { id: "25", category: "ART" },
+  { id: "15", category: "ENTERTAINMENT: VIDEO GAMES" },
   { id: "24", category: "POLITICS" },
 ];
 
@@ -99,7 +99,6 @@ const LandingPage = () => {
         </div>
 
         <div>
-          {/* <button className="p-2 border text-[#FCC822] hover:bg-[#FCC822] hover:text-white"> */}
           {!isLoggedIn && (
             <button className="p-2 border text-[#FCC822] hover:bg-[#FCC822] hover:text-white">
               Login
@@ -113,7 +112,6 @@ const LandingPage = () => {
               Logout
             </button>
           )}
-          {/* </button> */}
         </div>
       </div>
 
@@ -131,12 +129,6 @@ const LandingPage = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
-            {/* <button
-              className="p-2 border bg-amber-300 text-white cursor-pointer"
-              onClick={() => handleOpen()}
-            >
-              Start Solving
-            </button> */}
             <button
               className="p-2 border bg-amber-300 text-white cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-amber-400 shadow-md hover:shadow-lg"
               onClick={() => handleOpen()}
@@ -190,7 +182,6 @@ const LandingPage = () => {
                 >
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
                 </select>
               </div>
               <div className="flex gap-4 items-center justify-center lg:justify-start">
