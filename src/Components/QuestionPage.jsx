@@ -141,11 +141,11 @@ const QuestionPage = () => {
         </AnimatePresence>
 
         <div
-          className={`flex flex-col-reverse sm:flex-row justify-between mt-10 gap-4 items-center`}
+          className={`flex flex-col-reverse sm:flex-row justify-between mt-10 gap-4 items-center `}
         >
           {params?.id > 1 ? (
             <button
-              className="p-4 sm:px-8 bg-gray-400 text-white rounded hover:bg-gray-500 transition"
+              className="p-4 sm:px-8 bg-gray-400 text-white rounded hover:bg-gray-500 transition cursor-pointer"
               onClick={() =>
                 navigate(
                   `/question/${params?.category}/${Number(params?.id) - 1}`
@@ -169,13 +169,18 @@ const QuestionPage = () => {
             </span>
           </div>
           <button
-            className={`p-4 sm:px-8 rounded text-white transition ${
+            className={`p-4 sm:px-8 rounded text-white transition cursor-pointer ${
               Number(params?.id) === questionLength
                 ? "bg-green-600 hover:bg-green-700"
                 : "bg-amber-400 hover:bg-amber-500"
             }`}
             onClick={() => {
               if (Number(params?.id) === questionLength) {
+                const confirmSubmit = window.confirm(
+                  "Are you sure you want to submit?"
+                );
+                if (!confirmSubmit) return;
+
                 const totalScore = updatedQuestions.reduce((acc, q, idx) => {
                   return answers[idx] === q.correct_answer ? acc + 1 : acc;
                 }, 0);
