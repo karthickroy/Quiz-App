@@ -60,7 +60,7 @@ const QuestionPage = () => {
   return (
     <div className="w-full mx-auto flex items-center  flex-col min-h-screen px-4 py-8 ">
       <div className=" flex justify-around items-center w-full  ">
-        <img src="/Group 114.png" alt="efewf" />
+        <img src="/quizlogo_3.svg" alt="efewf" />
         <div className="flex space-x-6">
           <a href="#" className="relative text-[#E0E0E0] group">
             How it works?
@@ -76,7 +76,7 @@ const QuestionPage = () => {
           </a>
           {user ? (
             <div className="flex gap-2 justify-center items-center">
-              <img src="/Group (1).svg" alt="" />
+              <img src="/user.svg" alt="" />
               <p className="text-sm text-gray-600">
                 {user.displayName || user.email || "Anonymous"}
               </p>

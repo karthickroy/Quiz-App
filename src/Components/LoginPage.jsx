@@ -83,11 +83,7 @@ export default function LoginPage() {
       {/* Left Section */}
       <div className="w-full max-w-[400px]">
         <div className="text-center">
-          <img
-            src="public/Group 114 (1).png"
-            className="w-[200px] mx-auto"
-            alt="logo"
-          />
+          <img src="quizlogo.png" className="w-[200px] mx-auto" alt="logo" />
           <p className="pt-5 text-gray-400 text-sm sm:text-base">
             Welcome back! <br />
             Please login/Signup to your account.
@@ -172,7 +168,7 @@ export default function LoginPage() {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
         <img
-          src="public/Hands Graduate.svg"
+          src="Hands Graduate.svg"
           alt="login-illustration"
           className="w-[300px] md:w-[400px] lg:w-[500px]"
         />

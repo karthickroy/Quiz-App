@@ -84,7 +84,7 @@ const LandingPage = () => {
     <div className="container w-full min-h-screen mx-auto mt-5 relative px-4">
       {/* Header */}
       <div className="header flex flex-col sm:flex-row justify-between items-center px-2 sm:px-5 gap-4">
-        <img src="public/Group 114.png" alt="logo" className="w-32 sm:w-auto" />
+        <img src="quizlogo_1.png" alt="logo" className="w-32 sm:w-auto" />
 
         <div className="flex flex-wrap justify-center sm:justify-start items-center gap-4">
           <a href="#" className="text-sm text-[#E0E0E0]">
@@ -141,7 +141,7 @@ const LandingPage = () => {
         </div>
 
         <img
-          src="public/Group 118.png"
+          src="questions.png"
           className="w-64 sm:w-96 lg:w-[500px] h-auto"
           alt="illustration"
         />
