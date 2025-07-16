@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import categoryContext from "./Category";
 import Stepper from "./Stepper";
 
@@ -21,6 +21,11 @@ const QuestionPage = () => {
     const options = [...question.incorrect_answers, question.correct_answer];
     return options.sort(() => Math.random() - 0.5);
   };
+
+  useEffect(() => {
+    // Reset or re-sync selected option when question changes
+    setSelectedOption(answers[questionNo] || null);
+  }, [questionNo]);
 
   useEffect(() => {
     if (category) {
@@ -60,7 +65,9 @@ const QuestionPage = () => {
   return (
     <div className="w-full mx-auto flex items-center  flex-col min-h-screen px-4 py-8 ">
       <div className=" flex justify-around items-center w-full  ">
-        <img src="/quizlogo_3.svg" alt="efewf" />
+        <Link to={"/landing"}>
+          <img src="/quizlogo_3.svg" alt="efewf" />
+        </Link>
         <div className="flex space-x-6">
           <a href="#" className="relative text-[#E0E0E0] group">
             How it works?
@@ -134,31 +141,30 @@ const QuestionPage = () => {
         </AnimatePresence>
 
         <div
-          className={`flex flex-col-reverse sm:flex-row ${
-            params?.id > 1 ? "justify-between" : "justify-end"
-          } mt-10 gap-4 items-center`}
+          className={`flex flex-col-reverse sm:flex-row justify-between mt-10 gap-4 items-center`}
         >
-          {params?.id > 1 && (
+          {params?.id > 1 ? (
             <button
               className="p-4 sm:px-8 bg-gray-400 text-white rounded hover:bg-gray-500 transition"
               onClick={() =>
                 navigate(
-                  `/question/${params?.category}/${Number(params?.id - 1)}`
+                  `/question/${params?.category}/${Number(params?.id) - 1}`
                 )
               }
             >
               Previous
             </button>
+          ) : (
+            <div className="w-[120px]" /> // Keeps spacing even when Previous is hidden
           )}
 
-          {/* ✅ Time.svg Image */}
-          <div className="w-14 h-14 mx-4 relative ">
+          <div className="w-14 h-14 relative flex-shrink-0">
             <img
               src="/Time (1).svg"
               alt="Timer Icon"
-              className="w-full h-full object-contain "
+              className="w-full h-full object-contain"
             />
-            <span className="absolute top-[15px] right-[1px] left-[15px]  text-black font-mono font-semibold">
+            <span className="absolute top-[15px] left-1/2 -translate-x-1/2 text-black font-mono font-semibold">
               {timeLeft}
             </span>
           </div>
