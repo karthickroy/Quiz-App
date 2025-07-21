@@ -201,14 +201,14 @@ const QuestionPage = () => {
 
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box text-center max-w-lg">
-          <div className="relative w-[400px] h-[400px] mx-auto mb-4">
+          <div className="relative w-[150px] h-[150px]  md:w-[400px] md:h-[400px] mx-auto mb-4">
             <img
               src="/Dayflow Abstract 1 (1).svg"
               alt="Success Illustration"
               className="w-full h-full object-contain"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-8xl font-bold text-white drop-shadow-md">
+              <span className="text-5xl lg:text-8xl font-bold text-white drop-shadow-md">
                 {score}
               </span>
             </div>

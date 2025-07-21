@@ -130,7 +130,7 @@ const LandingPage = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
             <button
-              className="p-2 border bg-amber-300 text-white cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-amber-400 shadow-md hover:shadow-lg"
+              className="p-2  bg-amber-300 text-white cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-amber-400  hover:shadow-lg"
               onClick={() => handleOpen()}
             >
               Start Solving
